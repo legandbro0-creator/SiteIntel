@@ -1,0 +1,12 @@
+# SiteIntel v1.0 — deliberately short dependency list (Termux-friendly, all pure Python)
+httpx>=0.26,<1.0          # modern HTTP client (redirect chains, streaming, timeouts)
+dnspython>=2.4,<3.0       # full DNS record access (A/AAAA/MX/TXT/CAA/SOA/...)
+rich>=13.0,<14.0          # terminal tables/colours (SiteIntel falls back to plain output without it)
+beautifulsoup4>=4.12,<5.0 # forgiving HTML metadata parsing
+
+# ---------- optional ----------
+# cryptography>=42        # nicer certificate parsing for INVALID certs (std-lib ssl handles valid ones).
+                          # On Termux prefer:  pkg install python-cryptography
+
+# ---------- development only ----------
+# pytest>=8.0             # run the test suite:  python -m pytest -q

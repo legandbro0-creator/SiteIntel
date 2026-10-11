@@ -1,0 +1,487 @@
+[
+  {
+    "name": "Nginx",
+    "category": "web server",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Server",
+        "pattern": "nginx",
+        "confidence": "high",
+        "id": "nginx/header-0"
+      }
+    ]
+  },
+  {
+    "name": "Apache httpd",
+    "category": "web server",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Server",
+        "pattern": "\\bApache\\b",
+        "confidence": "high",
+        "id": "apache-httpd/header-0"
+      }
+    ]
+  },
+  {
+    "name": "Microsoft IIS",
+    "category": "web server",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Server",
+        "pattern": "Microsoft-IIS",
+        "confidence": "high",
+        "id": "microsoft-iis/header-0"
+      }
+    ]
+  },
+  {
+    "name": "OpenResty",
+    "category": "web server",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Server",
+        "pattern": "openresty",
+        "confidence": "high",
+        "id": "openresty/header-0"
+      }
+    ]
+  },
+  {
+    "name": "Cloudflare",
+    "category": "cdn / reverse proxy",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Server",
+        "pattern": "cloudflare",
+        "confidence": "high",
+        "id": "cloudflare/header-0"
+      },
+      {
+        "type": "header",
+        "header": "cf-ray",
+        "pattern": ".",
+        "confidence": "high",
+        "id": "cloudflare/header-1"
+      },
+      {
+        "type": "header",
+        "header": "cf-cache-status",
+        "pattern": ".",
+        "confidence": "high",
+        "id": "cloudflare/header-2"
+      },
+      {
+        "type": "cookie",
+        "pattern": "^__cf_bm$",
+        "confidence": "high",
+        "id": "cloudflare/cookie-3"
+      },
+      {
+        "type": "html",
+        "pattern": "cdn-cgi/(?:challenge-platform|scripts)",
+        "confidence": "high",
+        "id": "cloudflare/html-4"
+      }
+    ]
+  },
+  {
+    "name": "Varnish",
+    "category": "cache / reverse proxy",
+    "rules": [
+      {
+        "type": "header",
+        "header": "Via",
+        "pattern": "varnish",
+        "confidence": "high",
+        "id": "varnish/header-0"
+      },
+      {
+        "type": "header",
+        "header": "X-Varnish",
+        "pattern": "\\d",
+        "confidence": "high",
+        "id": "varnish/header-1"
+      }
+    ]
+  },
+  {
+    "name": "PHP",
+    "category": "runtime",
+    "rules": [
+      {
+        "type": "header",
+        "header": "X-Powered-By",
+        "pattern": "PHP",
+        "confidence": "high",
+        "id": "php/header-0"
+      },
+      {
+        "type": "cookie",
+        "pattern": "^PHPSESSID$",
+        "confidence": "high",
+        "id": "php/cookie-1"
+      }
+    ]
+  },
+  {
+    "name": "ASP.NET",
+    "category": "runtime / framework",
+    "rules": [
+      {
+        "type": "header",
+        "header": "X-Powered-By",
+        "pattern": "ASP\\.NET",
+        "confidence": "high",
+        "id": "asp.net/header-0"
+      },
+      {
+        "type": "header",
+        "header": "X-AspNet-Version",
+        "pattern": ".",
+        "confidence": "high",
+        "id": "asp.net/header-1"
+      },
+      {
+        "type": "cookie",
+        "pattern": "^ASP\\.NET_SessionId$",
+        "confidence": "high",
+        "id": "asp.net/cookie-2"
+      }
+    ]
+  },
+  {
+    "name": "Express",
+    "category": "framework (Node.js)",
+    "rules": [
+      {
+        "type": "header",
+        "header": "X-Powered-By",
+        "pattern": "Express",
+        "confidence": "high",
+        "id": "express/header-0"
+      }
+    ]
+  },
+  {
+    "name": "Next.js",
+    "category": "framework (React)",
+    "rules": [
+      {
+        "type": "header",
+        "header": "X-Powered-By",
+        "pattern": "Next\\.js",
+        "confidence": "high",
+        "id": "next.js/header-0"
+      },
+      {
+        "type": "html",
+        "pattern": "/_next/static/",
+        "confidence": "high",
+        "id": "next.js/html-1"
+      },
+      {
+        "type": "html",
+        "pattern": "id=\"__NEXT_DATA__\"",
+        "confidence": "high",
+        "id": "next.js/html-2"
+      }
+    ]
+  },
+  {
+    "name": "React",
+    "category": "frontend library",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "data-reactroot",
+        "confidence": "medium",
+        "id": "react/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "react(?:\\.production\\.min)?\\.js",
+        "confidence": "medium",
+        "id": "react/html-1"
+      }
+    ]
+  },
+  {
+    "name": "Django",
+    "category": "framework (Python)",
+    "rules": [
+      {
+        "type": "cookie",
+        "pattern": "^csrftoken$",
+        "confidence": "medium",
+        "id": "django/cookie-0"
+      },
+      {
+        "type": "html",
+        "pattern": "csrfmiddlewaretoken",
+        "confidence": "high",
+        "id": "django/html-1"
+      }
+    ]
+  },
+  {
+    "name": "Laravel",
+    "category": "framework (PHP)",
+    "rules": [
+      {
+        "type": "cookie",
+        "pattern": "^laravel_session$",
+        "confidence": "high",
+        "id": "laravel/cookie-0"
+      },
+      {
+        "type": "cookie",
+        "pattern": "^XSRF-TOKEN$",
+        "confidence": "low",
+        "id": "laravel/cookie-1"
+      }
+    ]
+  },
+  {
+    "name": "WordPress",
+    "category": "cms",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "<meta name=\"generator\" content=\"WordPress",
+        "confidence": "high",
+        "id": "wordpress/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "/wp-content/",
+        "confidence": "high",
+        "id": "wordpress/html-1"
+      },
+      {
+        "type": "html",
+        "pattern": "/wp-includes/",
+        "confidence": "high",
+        "id": "wordpress/html-2"
+      },
+      {
+        "type": "cookie",
+        "pattern": "^wordpress_",
+        "confidence": "high",
+        "id": "wordpress/cookie-3"
+      }
+    ]
+  },
+  {
+    "name": "Drupal",
+    "category": "cms",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "<meta name=\"Generator\" content=\"Drupal",
+        "confidence": "high",
+        "id": "drupal/html-0"
+      },
+      {
+        "type": "header",
+        "header": "X-Generator",
+        "pattern": "Drupal",
+        "confidence": "high",
+        "id": "drupal/header-1"
+      },
+      {
+        "type": "header",
+        "header": "X-Drupal-Cache",
+        "pattern": ".",
+        "confidence": "high",
+        "id": "drupal/header-2"
+      },
+      {
+        "type": "html",
+        "pattern": "/sites/default/files/",
+        "confidence": "medium",
+        "id": "drupal/html-3"
+      }
+    ]
+  },
+  {
+    "name": "Joomla",
+    "category": "cms",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "<meta name=\"generator\" content=\"Joomla",
+        "confidence": "high",
+        "id": "joomla/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "/media/system/js/",
+        "confidence": "medium",
+        "id": "joomla/html-1"
+      }
+    ]
+  },
+  {
+    "name": "Hugo",
+    "category": "static site generator",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "<meta name=\"generator\" content=\"Hugo",
+        "confidence": "high",
+        "id": "hugo/html-0"
+      }
+    ]
+  },
+  {
+    "name": "Shopify",
+    "category": "commerce platform",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "cdn\\.shopify\\.com",
+        "confidence": "high",
+        "id": "shopify/html-0"
+      },
+      {
+        "type": "header",
+        "header": "X-Shopify-Stage",
+        "pattern": ".",
+        "confidence": "high",
+        "id": "shopify/header-1"
+      }
+    ]
+  },
+  {
+    "name": "Wix",
+    "category": "site builder",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "static\\.wixstatic\\.com",
+        "confidence": "high",
+        "id": "wix/html-0"
+      }
+    ]
+  },
+  {
+    "name": "Squarespace",
+    "category": "site builder",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "static1\\.squarespace\\.com",
+        "confidence": "high",
+        "id": "squarespace/html-0"
+      }
+    ]
+  },
+  {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "googletagmanager\\.com/gtag/js",
+        "confidence": "high",
+        "id": "google-analytics/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "google-analytics\\.com/(?:analytics|ga)\\.js",
+        "confidence": "high",
+        "id": "google-analytics/html-1"
+      }
+    ]
+  },
+  {
+    "name": "Google Tag Manager",
+    "category": "analytics",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "googletagmanager\\.com/gtm\\.js",
+        "confidence": "high",
+        "id": "google-tag-manager/html-0"
+      }
+    ]
+  },
+  {
+    "name": "Matomo",
+    "category": "analytics",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "matomo\\.(?:js|php)",
+        "confidence": "medium",
+        "id": "matomo/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "piwik\\.(?:js|php)",
+        "confidence": "medium",
+        "id": "matomo/html-1"
+      }
+    ]
+  },
+  {
+    "name": "jQuery",
+    "category": "frontend library",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "jquery[-.][0-9]+\\.[0-9]",
+        "confidence": "medium",
+        "id": "jquery/html-0"
+      },
+      {
+        "type": "html",
+        "pattern": "jquery(?:\\.min)?\\.js",
+        "confidence": "medium",
+        "id": "jquery/html-1"
+      }
+    ]
+  },
+  {
+    "name": "Bootstrap",
+    "category": "frontend framework",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "bootstrap(?:\\.bundle)?(?:\\.min)?\\.(?:css|js)",
+        "confidence": "medium",
+        "id": "bootstrap/html-0"
+      }
+    ]
+  },
+  {
+    "name": "Font Awesome",
+    "category": "icons",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "font-?awesome",
+        "confidence": "medium",
+        "id": "font-awesome/html-0"
+      }
+    ]
+  },
+  {
+    "name": "reCAPTCHA",
+    "category": "bot protection",
+    "rules": [
+      {
+        "type": "html",
+        "pattern": "google\\.com/recaptcha",
+        "confidence": "high",
+        "id": "recaptcha/html-0"
+      }
+    ]
+  }
+]
